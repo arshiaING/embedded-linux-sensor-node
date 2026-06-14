@@ -7,4 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(sensor-daemon
     app/src/main.cpp
+    app/src/FakeSensor.cpp
+)
+
+target_include_directories(sensor-daemon PRIVATE
+    app/include
 )
