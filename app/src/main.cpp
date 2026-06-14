@@ -1,16 +1,23 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <cstdlib>
+#include <ctime>
 
 double readFakeTemperature()
 {
-    double base = 20.0;
-    return base + (rand() % 1000) / 100.0; // Simulate a temperature reading between 20.0 and 30.0 degrees Celsius
+    // Simulate reading a temperature value from a sensor this is base on norwegian weather data in the summer months, which typically ranges from 10.0 to 20.0 degrees Celsius.
+    
+    double base = 10.0; // Base temperature
+    double randomPart = (rand() % 1000) / 100.0; // Simulate a random value between 0.0 and 10.0
+    return base + randomPart; // Simulate a temperature reading between 10.0 and 20.0 degrees Celsius
 
 }
 
 int main()
 {
+    srand(time(nullptr)); // Seed the random number generator
+
     std::cout << "Starting sensor prototype..." << std::endl;
 
     for (int i = 0; i < 5; i++) {
