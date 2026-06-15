@@ -20,8 +20,20 @@ This lets me practice:
 
 The fake sensor will later be replaced with a real I2C sensor.
 
+
+## Choose the reading interval
+
+The program can take the reading interval as a command-line argument.
+
+For example, this reads the sensor every three seconds:
+
+```bash
+./build/sensor-daemon 3
+
+
 ## Build the program
 
 ```bash
 cmake -S . -B build
 cmake --build build
+

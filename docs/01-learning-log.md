@@ -53,3 +53,13 @@ I moved the reading interval into a named constant instead of writing the number
 This makes the code easier to understand and makes the interval easier to change later.
 
 I also used iomanip to display the temperature with two decimal places.
+
+## Command-line argument
+
+I changed the program so that the reading interval can be provided when the program starts.
+
+For example, running the program with the number 3 makes it wait three seconds between each sensor reading.
+
+I learned that argc contains the number of command-line arguments and argv contains the argument values.
+
+The program uses one second as the default interval if no value is provided.

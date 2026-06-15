@@ -8,18 +8,27 @@
 
 #include "FakeSensor.hpp"
 
-volatile std::sig_atomic_t running = 1; // Flag to control the main loop
+volatile std::sig_atomic_t running = 1;
 
-void handleSignal(int signal) // Signal handler to catch SIGINT (Ctrl + C)
+void handleSignal(int signal)
 {
     if (signal == SIGINT) {
         running = 0;
     }
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-    const int readingIntervalSeconds = 1;
+    int readingIntervalSeconds = 1;
+
+    if (argc > 1) {
+        readingIntervalSeconds = std::atoi(argv[1]);
+    }
+
+    if (readingIntervalSeconds <= 0) {
+        std::cout << "Invalid interval. Using 1 second." << std::endl;
+        readingIntervalSeconds = 1;
+    }
 
     srand(time(nullptr));
 
@@ -37,7 +46,7 @@ int main()
         double temperature = readFakeTemperature();
 
         std::cout << std::fixed
-                  << std::setprecision(2) // Format the output to 2 decimal places
+                  << std::setprecision(2)
                   << "Temperature: "
                   << temperature
                   << " C"
