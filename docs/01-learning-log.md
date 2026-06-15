@@ -36,3 +36,20 @@ This makes the program behave more like a sensor daemon because it can run conti
 
 The program still uses one thread, so sleep_for pauses the whole program for one second between each reading.
 
+## Graceful shutdown
+
+The program previously used an endless while loop and stopped immediately when I pressed Ctrl + C.
+
+I added simple signal handling for SIGINT.
+
+When Ctrl + C is pressed, the signal handler changes a running variable from 1 to 0. The while loop then stops, and the program prints a shutdown message before exiting.
+
+This gives the program a cleaner shutdown and will be useful later when the program needs to close hardware resources.
+
+ ## Reading interval and output formatting
+
+I moved the reading interval into a named constant instead of writing the number directly inside sleep_for.
+
+This makes the code easier to understand and makes the interval easier to change later.
+
+I also used iomanip to display the temperature with two decimal places.
