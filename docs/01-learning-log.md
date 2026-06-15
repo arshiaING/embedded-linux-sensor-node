@@ -1,3 +1,5 @@
+# Learning Log
+
 ## Random temperature values
 
 The first fake sensor always returned the same temperature.
@@ -6,4 +8,31 @@ I changed the function so that it now returns a random temperature between appro
 
 I used `srand()` with the current time so that the program does not produce the same sequence every time it starts.
 
+
+
+
+## Separating the fake sensor code
+
+The first version of the project had all the code inside main.cpp.
+
+I moved the fake temperature function into separate files:
+
+- FakeSensor.hpp contains the function declaration.
+- FakeSensor.cpp contains the function implementation.
+- main.cpp controls the main program.
+
+This made main.cpp easier to read.
+
+I also updated CMakeLists.txt so that CMake compiles both C++ source files and can find the header file inside app/include.
+
+
+## Continuous sensor loop
+
+The first version only read the temperature five times.
+
+I changed the for loop to a while loop so that the program continues reading the fake sensor until I stop it with Ctrl + C.
+
+This makes the program behave more like a sensor daemon because it can run continuously.
+
+The program still uses one thread, so sleep_for pauses the whole program for one second between each reading.
 
