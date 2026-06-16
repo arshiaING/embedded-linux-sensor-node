@@ -7,7 +7,7 @@
         <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#1F2937;" value="Embedded Linux Sensor Node – System Architecture" vertex="1">
           <mxGeometry height="44" width="1080" x="260" y="18" as="geometry" />
         </mxCell>
-        <mxCell id="subtitle" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontColor=#64748B;" value="Planned final architecture — the current implementation is built gradually stage by stage" vertex="1">
+        <mxCell id="subtitle" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontColor=#64748B;" value="This is my planned final architecture. I am building it step by step." vertex="1">
           <mxGeometry height="28" width="940" x="330" y="62" as="geometry" />
         </mxCell>
         <mxCell id="hardware_zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#94A3B8;strokeWidth=2;dashed=1;verticalAlign=top;spacingTop=13;fontSize=18;fontStyle=1;fontColor=#334155;" value="Hardware" vertex="1">
@@ -26,13 +26,13 @@
           <mxGeometry height="56" width="230" x="685" y="252" as="geometry" />
         </mxCell>
         <mxCell id="i2c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#8B5CF6;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#5B21B6;" value="Linux I2C Interface&amp;lt;br&amp;gt;&amp;lt;font style=&#39;font-size:12px&#39;&amp;gt;/dev/i2c-1&amp;lt;/font&amp;gt;" vertex="1">
-          <mxGeometry height="70" width="230" x="410" y="380" as="geometry" />
+          <mxGeometry height="70" width="230" x="685" y="395" as="geometry" />
         </mxCell>
         <mxCell id="config" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#8B5CF6;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#5B21B6;" value="Config file&amp;lt;br&amp;gt;&amp;lt;font style=&#39;font-size:12px&#39;&amp;gt;config.ini&amp;lt;/font&amp;gt;" vertex="1">
           <mxGeometry height="68" width="220" x="170" y="535" as="geometry" />
         </mxCell>
-        <mxCell id="systemd" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#8B5CF6;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#5B21B6;" value="systemd Service&amp;lt;br&amp;gt;&amp;lt;font style=&#39;font-size:12px&#39;&amp;gt;starts and restarts daemon&amp;lt;/font&amp;gt;" vertex="1">
-          <mxGeometry height="68" width="220" x="1260" y="457" as="geometry" />
+        <mxCell id="systemd" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#8B5CF6;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#5B21B6;" value="systemd Service&amp;lt;br&amp;gt;&amp;lt;font style=&#39;font-size:12px&#39;&amp;gt;starts / restarts daemon&amp;lt;/font&amp;gt;" vertex="1">
+          <mxGeometry height="68" width="220" x="1210" y="535" as="geometry" />
         </mxCell>
         <mxCell id="journald" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#8B5CF6;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#5B21B6;" value="Logging&amp;lt;br&amp;gt;&amp;lt;font style=&#39;font-size:12px&#39;&amp;gt;journald / CSV&amp;lt;/font&amp;gt;" vertex="1">
           <mxGeometry height="68" width="220" x="1210" y="650" as="geometry" />
@@ -43,10 +43,10 @@
         <mxCell id="sensor_group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FFFB;strokeColor=#6EE7B7;strokeWidth=1.5;dashed=1;verticalAlign=top;spacingTop=8;fontSize=12;fontStyle=1;fontColor=#047857;" value="Sensor implementations" vertex="1">
           <mxGeometry height="145" width="560" x="520" y="548" as="geometry" />
         </mxCell>
-        <mxCell id="isensor" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#10B981;strokeWidth=1.5;fontSize=13;fontColor=#065F46;" value="ISensor interface&amp;lt;br&amp;gt;&amp;lt;font style=&#39;font-size:11px&#39;&amp;gt;common sensor API&amp;lt;/font&amp;gt;" vertex="1">
+        <mxCell id="isensor" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#10B981;strokeWidth=1.5;fontSize=13;fontColor=#065F46;" value="ISensor interface&amp;lt;br&amp;gt;&amp;lt;font style=&#39;font-size:11px&#39;&amp;gt;same sensor functions&amp;lt;/font&amp;gt;" vertex="1">
           <mxGeometry height="52" width="240" x="680" y="575" as="geometry" />
         </mxCell>
-        <mxCell id="fake" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#10B981;strokeWidth=1.5;fontSize=13;fontColor=#065F46;" value="FakeSensor&amp;lt;br&amp;gt;&amp;lt;font style=&#39;font-size:11px&#39;&amp;gt;development / tests&amp;lt;/font&amp;gt;" vertex="1">
+        <mxCell id="fake" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#10B981;strokeWidth=1.5;fontSize=13;fontColor=#065F46;" value="FakeSensor&amp;lt;br&amp;gt;&amp;lt;font style=&#39;font-size:11px&#39;&amp;gt;used for development and tests&amp;lt;/font&amp;gt;" vertex="1">
           <mxGeometry height="52" width="220" x="550" y="648" as="geometry" />
         </mxCell>
         <mxCell id="real" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#10B981;strokeWidth=1.5;fontSize=13;fontColor=#065F46;" value="I2CSensor&amp;lt;br&amp;gt;&amp;lt;font style=&#39;font-size:11px&#39;&amp;gt;real hardware&amp;lt;/font&amp;gt;" vertex="1">
@@ -132,13 +132,13 @@
         <mxCell id="l2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#10B981;strokeWidth=1.5;" value="" vertex="1">
           <mxGeometry height="14" width="20" x="655" y="1017" as="geometry" />
         </mxCell>
-        <mxCell id="l2t" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#475569;align=left;" value="Your C++ code" vertex="1">
+        <mxCell id="l2t" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#475569;align=left;" value="My C++ code" vertex="1">
           <mxGeometry height="22" width="165" x="681" y="1013" as="geometry" />
         </mxCell>
         <mxCell id="l3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#8B5CF6;strokeWidth=1.5;" value="" vertex="1">
           <mxGeometry height="14" width="20" x="885" y="1017" as="geometry" />
         </mxCell>
-        <mxCell id="l3t" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#475569;align=left;" value="Pi / Linux components" vertex="1">
+        <mxCell id="l3t" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#475569;align=left;" value="Raspberry Pi / Linux" vertex="1">
           <mxGeometry height="22" width="165" x="911" y="1013" as="geometry" />
         </mxCell>
         <mxCell id="l4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF2F8;strokeColor=#EC4899;strokeWidth=1.5;" value="" vertex="1">

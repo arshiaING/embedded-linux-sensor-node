@@ -1,6 +1,4 @@
-cat > .gitignore <<'EOF'
 build/
 .DS_Store
 *.o
 *.log
-EOF
