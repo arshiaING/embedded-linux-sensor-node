@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050">
+<defs>
+  <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#F59E0B"/></marker>
+  <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#8B5CF6"/></marker>
+  <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#10B981"/></marker>
+  <marker id="arrow-pink" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#EC4899"/></marker>
+  <marker id="arrow-open-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="none" stroke="#10B981" stroke-width="1.2"/></marker>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#334155}
+    .zone{fill:#F8FAFC;stroke:#94A3B8;stroke-width:2;stroke-dasharray:8 7}
+    .label-bg{fill:white;opacity:.94}
+  </style>
+</defs>
+<rect width="1600" height="1050" fill="#FFFFFF"/>
+<text x="800" y="50" font-size="27" font-weight="700" text-anchor="middle" fill="#1F2937">Embedded Linux Sensor Node – System Architecture</text>
+<text x="800" y="82" font-size="13" font-weight="400" text-anchor="middle" fill="#64748B">Planned final architecture — the current implementation is built gradually stage by stage</text>
+<rect x="40" y="105" width="1520" height="230" rx="14" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2" stroke-dasharray="8 7"/>
+<rect x="40" y="355" width="1520" height="405" rx="14" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2" stroke-dasharray="8 7"/>
+<rect x="40" y="780" width="1520" height="215" rx="14" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2" stroke-dasharray="8 7"/>
+<text x="800" y="134" font-size="18" font-weight="700" text-anchor="middle" fill="#334155">Hardware</text>
+<text x="800" y="384" font-size="18" font-weight="700" text-anchor="middle" fill="#334155">Raspberry Pi 5 / Yocto Linux</text>
+<text x="800" y="809" font-size="18" font-weight="700" text-anchor="middle" fill="#334155">External Services</text>
+<rect x="685" y="150" width="230" height="78" rx="13" fill="#FFF7ED" stroke="#F59E0B" stroke-width="2"/>
+<text x="800.0" y="185.0" font-size="15" font-weight="700" text-anchor="middle" fill="#9A3412">I2C Sensor</text>
+<text x="800.0" y="205.0" font-size="12" font-weight="400" text-anchor="middle" fill="#92400E">AHT21 / BMP280</text>
+<rect x="685" y="252" width="230" height="56" rx="13" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+<text x="800.0" y="285.0" font-size="14" font-weight="700" text-anchor="middle" fill="#92400E">SDA / SCL / 3.3V / GND</text>
+<rect x="685" y="395" width="230" height="70" rx="13" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="2"/>
+<text x="800.0" y="426.0" font-size="15" font-weight="700" text-anchor="middle" fill="#5B21B6">Linux I2C Interface</text>
+<text x="800.0" y="446.0" font-size="12" font-weight="400" text-anchor="middle" fill="#5B21B6">/dev/i2c-1</text>
+<rect x="170" y="535" width="220" height="68" rx="13" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="2"/>
+<text x="280.0" y="565.0" font-size="15" font-weight="700" text-anchor="middle" fill="#5B21B6">Config file</text>
+<text x="280.0" y="585.0" font-size="12" font-weight="400" text-anchor="middle" fill="#5B21B6">config.ini</text>
+<rect x="1210" y="535" width="220" height="68" rx="13" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="2"/>
+<text x="1320.0" y="565.0" font-size="15" font-weight="700" text-anchor="middle" fill="#5B21B6">systemd Service</text>
+<text x="1320.0" y="585.0" font-size="12" font-weight="400" text-anchor="middle" fill="#5B21B6">starts and restarts daemon</text>
+<rect x="1210" y="650" width="220" height="68" rx="13" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="2"/>
+<text x="1320.0" y="680.0" font-size="15" font-weight="700" text-anchor="middle" fill="#5B21B6">Logging</text>
+<text x="1320.0" y="700.0" font-size="12" font-weight="400" text-anchor="middle" fill="#5B21B6">journald / CSV</text>
+<rect x="480" y="500" width="640" height="225" rx="16" fill="#ECFDF5" stroke="#10B981" stroke-width="2.5"/>
+<text x="800" y="528" font-size="17" font-weight="700" text-anchor="middle" fill="#065F46">C++ Sensor Daemon</text>
+<rect x="520" y="548" width="560" height="145" rx="13" fill="#F8FFFB" stroke="#6EE7B7" stroke-width="1.5" stroke-dasharray="7 6"/>
+<text x="800" y="566" font-size="12" font-weight="700" text-anchor="middle" fill="#047857">Sensor implementations</text>
+<rect x="680" y="575" width="240" height="52" rx="13" fill="#F0FDF4" stroke="#10B981" stroke-width="1.5"/>
+<text x="800.0" y="597.0" font-size="15" font-weight="700" text-anchor="middle" fill="#065F46">ISensor interface</text>
+<text x="800.0" y="617.0" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">common sensor API</text>
+<rect x="550" y="648" width="220" height="52" rx="13" fill="#F0FDF4" stroke="#10B981" stroke-width="1.5"/>
+<text x="660.0" y="670.0" font-size="15" font-weight="700" text-anchor="middle" fill="#065F46">FakeSensor</text>
+<text x="660.0" y="690.0" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">development / tests</text>
+<rect x="830" y="648" width="220" height="52" rx="13" fill="#F0FDF4" stroke="#10B981" stroke-width="1.5"/>
+<text x="940.0" y="670.0" font-size="15" font-weight="700" text-anchor="middle" fill="#065F46">I2CSensor</text>
+<text x="940.0" y="690.0" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">real hardware</text>
+<rect x="170" y="845" width="220" height="72" rx="13" fill="#FDF2F8" stroke="#EC4899" stroke-width="2"/>
+<text x="280.0" y="877.0" font-size="15" font-weight="700" text-anchor="middle" fill="#9D174D">Mender OTA</text>
+<text x="280.0" y="897.0" font-size="12" font-weight="400" text-anchor="middle" fill="#9D174D">A/B system update</text>
+<rect x="510" y="845" width="220" height="72" rx="13" fill="#FDF2F8" stroke="#EC4899" stroke-width="2"/>
+<text x="620.0" y="877.0" font-size="15" font-weight="700" text-anchor="middle" fill="#9D174D">MQTT Broker</text>
+<text x="620.0" y="897.0" font-size="12" font-weight="400" text-anchor="middle" fill="#9D174D">receives JSON data</text>
+<rect x="790" y="845" width="220" height="72" rx="13" fill="#FDF2F8" stroke="#EC4899" stroke-width="2"/>
+<text x="900.0" y="886.0" font-size="14" font-weight="700" text-anchor="middle" fill="#9D174D">InfluxDB</text>
+<rect x="1070" y="845" width="220" height="72" rx="13" fill="#FDF2F8" stroke="#EC4899" stroke-width="2"/>
+<text x="1180.0" y="886.0" font-size="14" font-weight="700" text-anchor="middle" fill="#9D174D">Grafana Dashboard</text>
+<path d="M800 228 L800 252" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+<rect x="810.0" y="230" width="120.0" height="20" rx="4" class="label-bg"/>
+<text x="870" y="244" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">signals + power</text>
+<path d="M800 308 L800 395" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+<rect x="815.2" y="338" width="69.6" height="20" rx="4" class="label-bg"/>
+<text x="850" y="352" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">connects</text>
+<path d="M800 465 L800 485 L1000 485 L1000 648" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-purple)"/>
+<rect x="902.0" y="464" width="56" height="20" rx="4" class="label-bg"/>
+<text x="930" y="478" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">reads</text>
+<path d="M660 648 L660 628 L760 628 L760 627" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#arrow-open-green)"/>
+<rect x="578.0" y="618" width="84.0" height="20" rx="4" class="label-bg"/>
+<text x="620" y="632" font-size="11" font-weight="400" text-anchor="middle" fill="#475569">implements</text>
+<path d="M940 648 L940 628 L840 628 L840 627" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#arrow-open-green)"/>
+<rect x="938.0" y="618" width="84.0" height="20" rx="4" class="label-bg"/>
+<text x="980" y="632" font-size="11" font-weight="400" text-anchor="middle" fill="#475569">implements</text>
+<path d="M390 569 L480 569" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-purple)"/>
+<rect x="407.0" y="544" width="56" height="20" rx="4" class="label-bg"/>
+<text x="435" y="558" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">reads</text>
+<path d="M1210 569 L1120 569" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-purple)"/>
+<rect x="1092.8" y="544" width="134.4" height="20" rx="4" class="label-bg"/>
+<text x="1160" y="558" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">starts / restarts</text>
+<path d="M1120 684 L1210 684" fill="none" stroke="#10B981" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-green)"/>
+<rect x="1137.0" y="659" width="56" height="20" rx="4" class="label-bg"/>
+<text x="1165" y="673" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">logs</text>
+<path d="M620 725 L620 845" fill="none" stroke="#EC4899" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-pink)"/>
+<rect x="628.6" y="776" width="112.8" height="20" rx="4" class="label-bg"/>
+<text x="685" y="790" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">publishes JSON</text>
+<path d="M730 881 L790 881" fill="none" stroke="#EC4899" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-pink)"/>
+<rect x="732.0" y="856" width="56" height="20" rx="4" class="label-bg"/>
+<text x="760" y="870" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">stores</text>
+<path d="M1010 881 L1070 881" fill="none" stroke="#EC4899" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-pink)"/>
+<rect x="998.0" y="856" width="84.0" height="20" rx="4" class="label-bg"/>
+<text x="1040" y="870" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">visualizes</text>
+<path d="M280 845 L280 820 L110 820 L110 760" fill="none" stroke="#EC4899" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 6" marker-end="url(#arrow-pink)"/>
+<rect x="142.8" y="796" width="134.4" height="20" rx="4" class="label-bg"/>
+<text x="210" y="810" font-size="11" font-weight="400" text-anchor="middle" fill="#475569">updates A/B image</text>
+<rect x="360" y="1010" width="880" height="28" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+<text x="380" y="1029" font-size="12" font-weight="700" text-anchor="start" fill="#334155">Legend:</text>
+<rect x="455" y="1017" width="20" height="14" rx="4" fill="#FFF7ED" stroke="#F59E0B" stroke-width="1.5"/>
+<text x="482" y="1029" font-size="11" font-weight="400" text-anchor="start" fill="#475569">Hardware</text>
+<rect x="655" y="1017" width="20" height="14" rx="4" fill="#ECFDF5" stroke="#10B981" stroke-width="1.5"/>
+<text x="682" y="1029" font-size="11" font-weight="400" text-anchor="start" fill="#475569">Your C++ code</text>
+<rect x="885" y="1017" width="20" height="14" rx="4" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="1.5"/>
+<text x="912" y="1029" font-size="11" font-weight="400" text-anchor="start" fill="#475569">Pi / Linux components</text>
+<rect x="1145" y="1017" width="20" height="14" rx="4" fill="#FDF2F8" stroke="#EC4899" stroke-width="1.5"/>
+<text x="1172" y="1029" font-size="11" font-weight="400" text-anchor="start" fill="#475569">External services</text>
+</svg>

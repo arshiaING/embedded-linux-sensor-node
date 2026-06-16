@@ -8,16 +8,16 @@
 
 #include "FakeSensor.hpp"
 
-volatile std::sig_atomic_t running = 1;
+volatile std::sig_atomic_t running = 1; // flag to control the main loop, set to 0 when SIGINT is received
 
-void handleSignal(int signal)
+void handleSignal(int signal) // signal handler for SIGINT (Ctrl + C)
 {
     if (signal == SIGINT) {
         running = 0;
     }
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char* argv[]) // used to read the reading interval from command line arguments, default is 1 second
 {
     int readingIntervalSeconds = 1;
 
