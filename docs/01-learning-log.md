@@ -63,3 +63,20 @@ For example, running the program with the number 3 makes it wait three seconds b
 I learned that argc contains the number of command-line arguments and argv contains the argument values.
 
 The program uses one second as the default interval if no value is provided.
+
+
+## Timestamps
+
+I added a timestamp to each temperature reading.
+
+I used `std::chrono` to get the current time and `std::put_time` to format it.
+
+The timestamp is shown together with the temperature in the terminal.
+
+## CSV file
+
+I added a CSV file to save the temperature readings.
+
+Each row contains the timestamp and temperature.
+
+I used `std::ofstream` with `std::ios::app` so that new readings are added without deleting the old data.
