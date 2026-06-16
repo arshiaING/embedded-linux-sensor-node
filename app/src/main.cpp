@@ -17,6 +17,27 @@ void handleSignal(int signal) // signal handler for SIGINT (Ctrl + C)
     }
 }
 
+std::string getCurrentTimestamp() // function to get the current timestamp as a string
+{
+    auto now = std::chrono::system_clock::now();
+
+    std::time_t currentTime =
+        std::chrono::system_clock::to_time_t(now);
+
+    std::tm* localTime = std::localtime(&currentTime); // convert to local time
+
+    std::ostringstream timestamp;
+
+    timestamp << std::put_time(
+        localTime,
+        "%Y-%m-%d %H:%M:%S"
+    );
+
+    return timestamp.str();
+}
+
+
+
 int main(int argc, char* argv[]) // used to read the reading interval from command line arguments, default is 1 second
 {
     int readingIntervalSeconds = 1;
@@ -45,7 +66,8 @@ int main(int argc, char* argv[]) // used to read the reading interval from comma
     while (running) {
         double temperature = readFakeTemperature();
 
-        std::cout << std::fixed
+        std::cout << getCurrentTimestamp() << " - " // print timestamp and temperature reading
+                  << std::fixed
                   << std::setprecision(2)
                   << "Temperature: "
                   << temperature

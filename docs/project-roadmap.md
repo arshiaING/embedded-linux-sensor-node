@@ -41,13 +41,13 @@ Make the fake temperature behave more like a real sensor.
 
 ### Tasks
 
-- [~] Check that the starting temperature is between 10 and 20 °C
-- [~] Check that the temperature remembers the previous value
-- [~] Check that it changes gradually
+- [x] Check that the starting temperature is between 10 and 20 °C
+- [x] Check that the temperature remembers the previous value
+- [x] Check that it changes gradually
 - [x] Move the FakeSensor code into separate files
-- [~] Check that the program runs continuously
-- [~] Check that Ctrl+C stops the program correctly
-- [~] Add a configurable reading interval
+- [x] Check that the program runs continuously
+- [x] Check that Ctrl+C stops the program correctly
+- [x] Add a configurable reading interval
 
 ---
 
@@ -59,7 +59,7 @@ Make the output easier to understand and save the measurements.
 
 ### Tasks
 
-- [ ] Add timestamps
+- [x] Add timestamps
 - [ ] Save readings to a CSV file
 - [ ] Handle simple file errors
 - [ ] Improve terminal messages
