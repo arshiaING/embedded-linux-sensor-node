@@ -47,7 +47,7 @@ Make the fake temperature behave more like a real sensor.
 - [x] Move the FakeSensor code into separate files
 - [~] Check that the program runs continuously
 - [~] Check that Ctrl+C stops the program correctly
-- [ ] Add a configurable reading interval
+- [~] Add a configurable reading interval
 
 ---
 
