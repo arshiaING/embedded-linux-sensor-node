@@ -8,7 +8,7 @@ The final goal is to build a custom Linux image for a Raspberry Pi 5 and run a C
 
 My Raspberry Pi is used for another project, so I am starting with a simple C++ prototype on my Mac.
 
-The first version uses a fake temperature function that returns a temperature between 20 and 30 degrees.
+The first version uses a fake temperature function that returns a temperature between 10 and 20 degrees.
 
 This lets me practice:
 
