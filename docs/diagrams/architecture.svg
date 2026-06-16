@@ -13,7 +13,7 @@
 </defs>
 <rect width="1600" height="1050" fill="#FFFFFF"/>
 <text x="800" y="50" font-size="27" font-weight="700" text-anchor="middle" fill="#1F2937">Embedded Linux Sensor Node – System Architecture</text>
-<text x="800" y="82" font-size="13" font-weight="400" text-anchor="middle" fill="#64748B">Planned final architecture — the current implementation is built gradually stage by stage</text>
+<text x="800" y="82" font-size="13" font-weight="400" text-anchor="middle" fill="#64748B">This is my planned final architecture. I am building it step by step.</text>
 <rect x="40" y="105" width="1520" height="230" rx="14" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2" stroke-dasharray="8 7"/>
 <rect x="40" y="355" width="1520" height="405" rx="14" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2" stroke-dasharray="8 7"/>
 <rect x="40" y="780" width="1520" height="215" rx="14" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2" stroke-dasharray="8 7"/>
@@ -33,7 +33,7 @@
 <text x="280.0" y="585.0" font-size="12" font-weight="400" text-anchor="middle" fill="#5B21B6">config.ini</text>
 <rect x="1210" y="535" width="220" height="68" rx="13" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="2"/>
 <text x="1320.0" y="565.0" font-size="15" font-weight="700" text-anchor="middle" fill="#5B21B6">systemd Service</text>
-<text x="1320.0" y="585.0" font-size="12" font-weight="400" text-anchor="middle" fill="#5B21B6">starts and restarts daemon</text>
+<text x="1320.0" y="585.0" font-size="12" font-weight="400" text-anchor="middle" fill="#5B21B6">starts / restarts daemon</text>
 <rect x="1210" y="650" width="220" height="68" rx="13" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="2"/>
 <text x="1320.0" y="680.0" font-size="15" font-weight="700" text-anchor="middle" fill="#5B21B6">Logging</text>
 <text x="1320.0" y="700.0" font-size="12" font-weight="400" text-anchor="middle" fill="#5B21B6">journald / CSV</text>
@@ -43,10 +43,10 @@
 <text x="800" y="566" font-size="12" font-weight="700" text-anchor="middle" fill="#047857">Sensor implementations</text>
 <rect x="680" y="575" width="240" height="52" rx="13" fill="#F0FDF4" stroke="#10B981" stroke-width="1.5"/>
 <text x="800.0" y="597.0" font-size="15" font-weight="700" text-anchor="middle" fill="#065F46">ISensor interface</text>
-<text x="800.0" y="617.0" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">common sensor API</text>
+<text x="800.0" y="617.0" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">same sensor functions</text>
 <rect x="550" y="648" width="220" height="52" rx="13" fill="#F0FDF4" stroke="#10B981" stroke-width="1.5"/>
 <text x="660.0" y="670.0" font-size="15" font-weight="700" text-anchor="middle" fill="#065F46">FakeSensor</text>
-<text x="660.0" y="690.0" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">development / tests</text>
+<text x="660.0" y="690.0" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">used for development and tests</text>
 <rect x="830" y="648" width="220" height="52" rx="13" fill="#F0FDF4" stroke="#10B981" stroke-width="1.5"/>
 <text x="940.0" y="670.0" font-size="15" font-weight="700" text-anchor="middle" fill="#065F46">I2CSensor</text>
 <text x="940.0" y="690.0" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">real hardware</text>
@@ -101,9 +101,9 @@
 <rect x="455" y="1017" width="20" height="14" rx="4" fill="#FFF7ED" stroke="#F59E0B" stroke-width="1.5"/>
 <text x="482" y="1029" font-size="11" font-weight="400" text-anchor="start" fill="#475569">Hardware</text>
 <rect x="655" y="1017" width="20" height="14" rx="4" fill="#ECFDF5" stroke="#10B981" stroke-width="1.5"/>
-<text x="682" y="1029" font-size="11" font-weight="400" text-anchor="start" fill="#475569">Your C++ code</text>
+<text x="682" y="1029" font-size="11" font-weight="400" text-anchor="start" fill="#475569">My C++ code</text>
 <rect x="885" y="1017" width="20" height="14" rx="4" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="1.5"/>
-<text x="912" y="1029" font-size="11" font-weight="400" text-anchor="start" fill="#475569">Pi / Linux components</text>
+<text x="912" y="1029" font-size="11" font-weight="400" text-anchor="start" fill="#475569">Raspberry Pi / Linux</text>
 <rect x="1145" y="1017" width="20" height="14" rx="4" fill="#FDF2F8" stroke="#EC4899" stroke-width="1.5"/>
 <text x="1172" y="1029" font-size="11" font-weight="400" text-anchor="start" fill="#475569">External services</text>
 </svg>
