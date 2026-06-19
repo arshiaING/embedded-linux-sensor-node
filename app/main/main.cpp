@@ -1,20 +1,19 @@
 #include "FakeSensor.hpp"
+#include "TimeUtils.hpp"
 
 #include <chrono>
 #include <csignal>
 #include <cstdlib>
-#include <ctime>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <sstream>
 #include <string>
 #include <thread>
 
-// Flag to control the main loop, set to 0 when SIGINT is received
+
 volatile std::sig_atomic_t running = 1;
 
-// Signal handler for SIGINT (Ctrl+C)
+// This function runs when the user presses Ctrl+C.
 void handleSignal(int signal)
 {
     if (signal == SIGINT) {
@@ -22,36 +21,16 @@ void handleSignal(int signal)
     }
 }
 
-// Function to get the current timestamp as a string
-std::string getCurrentTimestamp()
-{
-    auto now = std::chrono::system_clock::now();
-
-    std::time_t currentTime =
-        std::chrono::system_clock::to_time_t(now);
-
-    std::tm* localTime = std::localtime(&currentTime);
-
-    std::ostringstream timestamp;
-
-    timestamp << std::put_time(
-        localTime,
-        "%Y-%m-%d %H:%M:%S"
-    );
-
-    return timestamp.str();
-}
-
 int main(int argc, char* argv[])
 {
-    // Default reading interval is 1 second
+    // default interval 
     int intervalSeconds = 1;
 
-    // Read the interval from the command-line argument if it is provided
+  
     if (argc > 1) {
         intervalSeconds = std::atoi(argv[1]);
 
-        // Use the default interval if the value is invalid
+        
         if (intervalSeconds <= 0) {
             std::cerr
                 << "Invalid interval. Using default value of 1 second."
@@ -61,12 +40,13 @@ int main(int argc, char* argv[])
         }
     }
 
-    // Connect Ctrl+C to the signal handler
+    // Connects Ctrl+C to the handleSignal function.
     std::signal(SIGINT, handleSignal);
 
     const std::string csvFileName = "temperature_readings.csv";
 
-    // Check if the CSV file is new or empty
+    // Check if the file already exists and if it is empty.
+    // This is used so the CSV header is not written many times.
     std::ifstream existingFile(
         csvFileName,
         std::ios::binary | std::ios::ate
@@ -77,7 +57,7 @@ int main(int argc, char* argv[])
 
     existingFile.close();
 
-    // Open the CSV file and add new readings at the end
+    // std::ios::app means new readings are added at the end of the file.
     std::ofstream csvFile(csvFileName, std::ios::app);
 
     if (!csvFile.is_open()) {
@@ -90,7 +70,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    // Write the CSV header only once
+    // The header is only written if the file is new or empty.
     if (writeHeader) {
         csvFile << "timestamp,temperature" << std::endl;
     }
@@ -107,7 +87,8 @@ int main(int argc, char* argv[])
     while (running) {
         double temperature = readFakeTemperature();
 
-        // Use the same timestamp for the terminal and the CSV file
+        // Make the timestamp once, so the terminal and CSV file
+        // get exactly the same time value.
         std::string timestamp = getCurrentTimestamp();
 
         std::cout

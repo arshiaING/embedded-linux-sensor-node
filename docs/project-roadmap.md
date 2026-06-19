@@ -60,7 +60,7 @@ Make the output easier to understand and save the measurements.
 ### Tasks
 
 - [x] Add timestamps
-- [ ] Save readings to a CSV file
+- [x] Save readings to a CSV file
 - [ ] Handle simple file errors
 - [ ] Improve terminal messages
 - [ ] Add a simple config file
