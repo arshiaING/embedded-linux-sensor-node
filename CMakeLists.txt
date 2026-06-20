@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(sensor-daemon
     app/main/main.cpp
+    app/src/CsvLogger.cpp
     app/src/FakeSensor.cpp
     app/src/TimeUtils.cpp
 )

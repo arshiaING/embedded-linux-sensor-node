@@ -1,3 +1,4 @@
+#include "CsvLogger.hpp"
 #include "FakeSensor.hpp"
 #include "TimeUtils.hpp"
 
@@ -9,7 +10,6 @@
 #include <iostream>
 #include <string>
 #include <thread>
-
 
 volatile std::sig_atomic_t running = 1;
 
@@ -23,14 +23,13 @@ void handleSignal(int signal)
 
 int main(int argc, char* argv[])
 {
-    // default interval 
+    // Default reading interval
     int intervalSeconds = 1;
 
-  
+    // Read interval from command-line argument
     if (argc > 1) {
         intervalSeconds = std::atoi(argv[1]);
 
-        
         if (intervalSeconds <= 0) {
             std::cerr
                 << "Invalid interval. Using default value of 1 second."
@@ -40,27 +39,13 @@ int main(int argc, char* argv[])
         }
     }
 
-    // Connects Ctrl+C to the handleSignal function.
+    // Connect Ctrl+C to the signal handler
     std::signal(SIGINT, handleSignal);
 
     const std::string csvFileName = "temperature_readings.csv";
+    std::ofstream csvFile;
 
-    // Check if the file already exists and if it is empty.
-    // This is used so the CSV header is not written many times.
-    std::ifstream existingFile(
-        csvFileName,
-        std::ios::binary | std::ios::ate
-    );
-
-    bool writeHeader =
-        !existingFile.is_open() || existingFile.tellg() == 0;
-
-    existingFile.close();
-
-    // std::ios::app means new readings are added at the end of the file.
-    std::ofstream csvFile(csvFileName, std::ios::app);
-
-    if (!csvFile.is_open()) {
+    if (!openCsvFile(csvFile, csvFileName)) {
         std::cerr
             << "Could not open "
             << csvFileName
@@ -68,11 +53,6 @@ int main(int argc, char* argv[])
             << std::endl;
 
         return 1;
-    }
-
-    // The header is only written if the file is new or empty.
-    if (writeHeader) {
-        csvFile << "timestamp,temperature" << std::endl;
     }
 
     std::cout
@@ -87,8 +67,7 @@ int main(int argc, char* argv[])
     while (running) {
         double temperature = readFakeTemperature();
 
-        // Make the timestamp once, so the terminal and CSV file
-        // get exactly the same time value.
+        // Use the same timestamp in the terminal and CSV file
         std::string timestamp = getCurrentTimestamp();
 
         std::cout
@@ -100,13 +79,17 @@ int main(int argc, char* argv[])
             << " C"
             << std::endl;
 
-        csvFile
-            << timestamp
-            << ","
-            << std::fixed
-            << std::setprecision(2)
-            << temperature
-            << std::endl;
+        if (!writeCsvReading(csvFile, timestamp, temperature)) {
+            std::cerr
+                << "Could not write to "
+                << csvFileName
+                << ". Stopping program."
+                << std::endl;
+
+            csvFile.close();
+
+            return 1;
+        }
 
         std::this_thread::sleep_for(
             std::chrono::seconds(intervalSeconds)
