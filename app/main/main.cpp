@@ -23,19 +23,38 @@ void handleSignal(int signal)
 
 int main(int argc, char* argv[])
 {
-    // Default reading interval
+    // Default reading interval.
     int intervalSeconds = 1;
 
-    // Read interval from command-line argument
-    if (argc > 1) {
+    // Read the interval from the first command-line argument.
+    if (argc > 1)
+    {
         intervalSeconds = std::atoi(argv[1]);
 
-        if (intervalSeconds <= 0) {
+        // Keep asking until the user enters a positive interval.
+        while (intervalSeconds <= 0)
+        {
             std::cerr
-                << "Invalid interval. Using default value of 1 second."
+                << "Invalid interval. Enter a positive integer."
                 << std::endl;
 
-            intervalSeconds = 1;
+            std::cout
+                << "Reading interval in seconds: ";
+
+            std::cin >> intervalSeconds;
+
+            // Handle text or other invalid input.
+            if (std::cin.fail())
+            {
+                std::cin.clear();
+
+                std::cin.ignore(
+                    std::numeric_limits<std::streamsize>::max(),
+                    '\n'
+                );
+
+                intervalSeconds = 0;
+            }
         }
     }
 
@@ -62,6 +81,11 @@ int main(int argc, char* argv[])
     std::cout
         << "Saving readings to "
         << csvFileName
+        << std::endl;
+    
+    std::cout << "Reading interval: "
+        << intervalSeconds
+        << " second(s)"
         << std::endl;
 
     while (running) {
